@@ -1,0 +1,25 @@
+:root {
+  --blue: #5A789D;
+  --gray: #CFD8DC;
+  --white: #ECEFF1;
+  --dark-blue: #263238;
+  --orange: #FFA726
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  font-family: sans-serif;
+
+  border: 1px solid red;
+}
+
+header {
+  height: 5vh;
+}
+
+footer {
+  height: 5vh;
+}
