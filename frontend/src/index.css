@@ -16,10 +16,18 @@
   border: 1px solid red;
 }
 
-header {
-  height: 5vh;
+ul {
+  list-style: none;
 }
 
-footer {
-  height: 5vh;
+a {
+  color: var(--white) !important;
+  text-decoration: none !important;
+}
+
+nav {
+  background-color: var(--blue);
+  color: var(--white);
+
+  position: sticky;
 }

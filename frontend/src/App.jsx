@@ -5,6 +5,7 @@ import DefaultLayout from "./layouts/DefaultLayout"
 
 // pages
 import HomePage from "./pages/HomePage"
+import VehicleDetails from "./pages/VehicleDetails"
 
 export default function App() {
   return (
@@ -12,6 +13,7 @@ export default function App() {
       <Routes>
         <Route Component={DefaultLayout}>
           <Route path="/" Component={HomePage} />
+          <Route path="/vehicles/:id" Component={VehicleDetails} />
         </Route>
       </Routes>
     </BrowserRouter>
