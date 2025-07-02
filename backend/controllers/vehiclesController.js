@@ -7,14 +7,28 @@ function index(req, res) {
             return res.status(500).json({
                 error: 'Errore lato server INDEX function'
             });
+
         res.json(results);
     });
-
-    res.send("Lista di tutti i veicoli presenti nel garage");
 };
 
 function show(req, res) {
-    res.send("Dettagli del veicolo " + req.params.id);
+    const { id } = req.params;
+
+    dbConnection.query("SELECT * FROM vehicles WHERE id=?", [id], (err, results) => {
+        if (err)
+            return res.status(500).json({
+                error: 'Errore lato server SHOW function'
+            });
+
+        if (results.length === 0)
+            return res.status(404).json({
+                error: 'Veicolo non trovato'
+            })
+
+        res.json(results);
+    });
+
 };
 
 function store(req, res) {
