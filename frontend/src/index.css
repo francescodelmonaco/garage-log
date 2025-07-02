@@ -27,3 +27,8 @@ nav {
 
   position: sticky;
 }
+
+/* card */
+.card {
+  background-color: var(--gray);
+}
