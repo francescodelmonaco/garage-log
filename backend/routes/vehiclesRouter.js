@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const vehiclesController = require("../controllers/vehiclesController");
+const vehiclesController = require("../controllers/vehiclesController.js");
 
-// Rotte CRUD per i veicoli
+// rotte CRUD per i veicoli
 router.get("/", vehiclesController.index);
 router.get("/:id", vehiclesController.show);
 router.post("/", vehiclesController.store);

@@ -1,6 +1,15 @@
-// Controller per la logica dei veicoli
+const dbConnection = require("../data/garage-log-db.js") // file di collegamento al datatbase
 
+// controller per la logica dei veicoli
 function index(req, res) {
+    dbConnection.query("SELECT * FROM vehicles", (err, results) => {
+        if (err)
+            return res.status(500).json({
+                error: 'Errore lato server INDEX function'
+            });
+        res.json(results);
+    });
+
     res.send("Lista di tutti i veicoli presenti nel garage");
 };
 

@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom"
 
 export default function NavBar() {
     return (
-        <nav>
+        <nav className="flex justify-between px-8 py-4">
             <figure>
                 🚗
             </figure>
