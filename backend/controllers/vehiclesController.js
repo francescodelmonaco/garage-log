@@ -32,9 +32,21 @@ function show(req, res) {
 };
 
 function store(req, res) {
-    console.log(req.body);
-    res.send("Creazione di un nuovo veicolo");
-};
+    const { type, brand, model, plate, frame_number, color, fuel } = req.body;
+
+    dbConnection.query("INSERT INTO vehicles (type, brand, model, plate, frame_number, color, fuel) VALUES (?, ?, ?, ?, ?, ?, ?)",
+        [type, brand, model, plate, frame_number, color, fuel],
+        (err, result) => {
+            if (err) {
+                return res.status(500).json({
+                    error: 'Errore lato server STORE function'
+                });
+            }
+
+            res.json({ id: result.insertId, ...req.body });
+        }
+    );
+}
 
 function update(req, res) {
     res.send("Modifica integrale del veicolo " + req.params.id);

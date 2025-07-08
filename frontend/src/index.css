@@ -9,7 +9,7 @@
 }
 
 * {
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 ul {
@@ -21,14 +21,6 @@ a {
   text-decoration: none !important;
 }
 
-nav {
-  background-color: var(--blue);
-  color: var(--white);
-
-  position: sticky;
-}
-
-/* card */
-.card {
-  background-color: var(--gray);
+button {
+  cursor: pointer;
 }

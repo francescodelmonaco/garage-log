@@ -8,7 +8,7 @@ export default function DefaultLayout() {
                 <NavBar />
             </header>
 
-            <main>
+            <main className="max-w-4/5 mx-auto">
                 <Outlet />
             </main>
         </>
