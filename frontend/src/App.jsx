@@ -7,15 +7,20 @@ import DefaultLayout from "./layouts/DefaultLayout"
 import HomePage from "./pages/HomePage"
 import VehicleDetails from "./pages/VehicleDetails"
 
+// contexts
+import { GlobalProvider } from "./contexts/GlobalContext"
+
 export default function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route Component={DefaultLayout}>
-          <Route path="/" Component={HomePage} />
-          <Route path="/vehicles/:id" Component={VehicleDetails} />
-        </Route>
-      </Routes>
+      <GlobalProvider>
+        <Routes>
+          <Route Component={DefaultLayout}>
+            <Route path="/" Component={HomePage} />
+            <Route path="/vehicles/:id" Component={VehicleDetails} />
+          </Route>
+        </Routes>
+      </GlobalProvider>
     </BrowserRouter>
   )
 }

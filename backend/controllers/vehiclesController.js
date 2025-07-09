@@ -32,12 +32,16 @@ function show(req, res) {
 };
 
 function store(req, res) {
-    const { type, brand, model, plate, frame_number, color, fuel } = req.body;
+    const { type, brand, model, plate, vin, color, fuel } = req.body;
 
-    dbConnection.query("INSERT INTO vehicles (type, brand, model, plate, frame_number, color, fuel) VALUES (?, ?, ?, ?, ?, ?, ?)",
-        [type, brand, model, plate, frame_number, color, fuel],
+    console.log("BODY:", req.body);
+
+    dbConnection.query(
+        "INSERT INTO vehicles (type, brand, model, plate, vin, color, fuel) VALUES (?, ?, ?, ?, ?, ?, ?)",
+        [type, brand, model, plate, vin, color, fuel],
         (err, result) => {
             if (err) {
+                console.error("Errore SQL:", err);
                 return res.status(500).json({
                     error: 'Errore lato server STORE function'
                 });
