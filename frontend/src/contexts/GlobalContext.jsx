@@ -9,11 +9,15 @@ const GlobalProvider = ({ children }) => {
     // GET
     const [vehicles, setVehicles] = useState([]);
 
-    useEffect(() => {
+    const fetchVehicles = () => {
         fetch(url)
             .then(res => res.json())
             .then(data => setVehicles(data))
-            .catch(err => console.error(err))
+            .catch(err => console.error(err));
+    };
+
+    useEffect(() => {
+        fetchVehicles();
     }, []);
 
     // form
@@ -53,7 +57,7 @@ const GlobalProvider = ({ children }) => {
                 });
             })
             .catch(err => console.error(err));
-    }
+    };
 
     const value = {
         vehicles,
@@ -61,7 +65,8 @@ const GlobalProvider = ({ children }) => {
         setShowForm,
         formData,
         handleChange,
-        handleSubmit
+        handleSubmit,
+        fetchVehicles
     };
 
     return (
