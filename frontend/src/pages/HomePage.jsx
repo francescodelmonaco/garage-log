@@ -25,10 +25,6 @@ export default function HomePage() {
                 </button>
             </div>
 
-            {showForm && (
-                <Form />
-            )}
-
             <div className="flex gap-2">
                 {
                     vehicles.map((v, index) => {
@@ -46,6 +42,13 @@ export default function HomePage() {
                     })
                 }
             </div>
+
+            {showForm && (
+                <>
+                    <div className="fixed inset-0 bg-black opacity-75"></div>
+                    <Form />
+                </>
+            )}
         </>
     )
 } 
